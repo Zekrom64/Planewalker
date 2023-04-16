@@ -16,6 +16,7 @@ using Tesseract.CLI.ImGui;
 using System.Numerics;
 using Tesseract.Core.Resource;
 using Tesseract.Core.Utilities;
+using Tesseract.CLI.ImGui.Addon;
 
 namespace Planewalker {
 
@@ -36,6 +37,8 @@ namespace Planewalker {
 		public Display() {
 			Window = WindowSystem.CreateWindow("Planewalker", 1200, 900, new WindowAttributeList() {
 				{ WindowAttributes.Resizable, true },
+				{ WindowAttributes.Maximized, true },
+
 				{ GLWindowAttributes.OpenGLWindow, true },
 				{ GLWindowAttributes.ContextVersionMajor, 4 },
 				{ GLWindowAttributes.ContextVersionMinor, 5 }
@@ -52,9 +55,21 @@ namespace Planewalker {
 			ImGuiCoreInput.Init(InputSystem, Window, WindowSystem);
 			ImGuiOpenGL45.Init(GL);
 
+
 			var fonts = GImGui.IO.Fonts;
+			const float fontSize = 18;
 			using Stream notoSans = new ResourceLocation("Fonts/NotoSans-SemiBold.ttf").OpenStream();
-			fonts.AddFontFromMemoryTTF(notoSans.ReadFully(), 18);
+			fonts.AddFontFromMemoryTTF(notoSans.ReadFully(), fontSize);
+			using Stream fontAwesome = new ResourceLocation("Fonts/Font Awesome 6 Free-Solid-900.ttf").OpenStream();
+			fonts.AddFontFromMemoryTTF(fontAwesome.ReadFully(), fontSize, new ImFontConfig() {
+				MergeMode = true,
+				GlyphRanges = new List<(char, char)>() {
+					('\u0020', '\u00F7'),
+					('\u2013', '\u2B50'),
+					('\uE005', '\uE5B4'),
+					('\uF000', '\uF8FF')
+				}
+			});
 		}
 
 		public void Dispose() {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planewalker", "Planewalker\Planewalker.csproj", "{217450FB-D18E-430B-B116-BA693C63D53B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Planewalker", "Planewalker\Planewalker.csproj", "{217450FB-D18E-430B-B116-BA693C63D53B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractEngine-Core", "TesseractEngine\TesseractEngine-Core\TesseractEngine-Core.csproj", "{F79B2AE6-AE85-47CF-88F4-5C709D9B7C0F}"
 EndProject
@@ -17,11 +17,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractEngine-ImGui-OpenG
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractEngine-GL", "TesseractEngine\TesseractEngine-GL\TesseractEngine-GL.csproj", "{B31CD314-F5EA-4258-ABAC-EEF19DA0E7E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planewalker.Win32", "Planewalker.Win32\Planewalker.Win32.csproj", "{DC427E96-A5EF-45FC-B7A4-3D82D2924755}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Planewalker.Win32", "Planewalker.Win32\Planewalker.Win32.csproj", "{DC427E96-A5EF-45FC-B7A4-3D82D2924755}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractEngine-SDL2-OpenGL", "TesseractEngine\TesseractEngine-SDL2-OpenGL\TesseractEngine-SDL2-OpenGL.csproj", "{F65EDDFA-C738-4EF4-B973-B7CD9CDB09B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractEngine-ImGui-Core", "TesseractEngine\TesseractEngine-ImGui-Core\TesseractEngine-ImGui-Core.csproj", "{1EA38180-1C62-4CDF-8178-90E0427994EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractEngine-LMDB", "TesseractEngine\TesseractEngine-LMDB\TesseractEngine-LMDB.csproj", "{9F457E61-104E-4461-A00F-936EE761D99A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planewaker.Mkdungeon", "Planewaker.Mkdungeon\Planewaker.Mkdungeon.csproj", "{DFD4176A-5421-4DC0-BAF5-0BA4351C2A62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +157,30 @@ Global
 		{1EA38180-1C62-4CDF-8178-90E0427994EC}.Release|x64.Build.0 = Release|Any CPU
 		{1EA38180-1C62-4CDF-8178-90E0427994EC}.Release|x86.ActiveCfg = Release|Any CPU
 		{1EA38180-1C62-4CDF-8178-90E0427994EC}.Release|x86.Build.0 = Release|Any CPU
+		{9F457E61-104E-4461-A00F-936EE761D99A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F457E61-104E-4461-A00F-936EE761D99A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F457E61-104E-4461-A00F-936EE761D99A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9F457E61-104E-4461-A00F-936EE761D99A}.Debug|x64.Build.0 = Debug|Any CPU
+		{9F457E61-104E-4461-A00F-936EE761D99A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9F457E61-104E-4461-A00F-936EE761D99A}.Debug|x86.Build.0 = Debug|Any CPU
+		{9F457E61-104E-4461-A00F-936EE761D99A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F457E61-104E-4461-A00F-936EE761D99A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F457E61-104E-4461-A00F-936EE761D99A}.Release|x64.ActiveCfg = Release|Any CPU
+		{9F457E61-104E-4461-A00F-936EE761D99A}.Release|x64.Build.0 = Release|Any CPU
+		{9F457E61-104E-4461-A00F-936EE761D99A}.Release|x86.ActiveCfg = Release|Any CPU
+		{9F457E61-104E-4461-A00F-936EE761D99A}.Release|x86.Build.0 = Release|Any CPU
+		{DFD4176A-5421-4DC0-BAF5-0BA4351C2A62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFD4176A-5421-4DC0-BAF5-0BA4351C2A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFD4176A-5421-4DC0-BAF5-0BA4351C2A62}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DFD4176A-5421-4DC0-BAF5-0BA4351C2A62}.Debug|x64.Build.0 = Debug|Any CPU
+		{DFD4176A-5421-4DC0-BAF5-0BA4351C2A62}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DFD4176A-5421-4DC0-BAF5-0BA4351C2A62}.Debug|x86.Build.0 = Debug|Any CPU
+		{DFD4176A-5421-4DC0-BAF5-0BA4351C2A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFD4176A-5421-4DC0-BAF5-0BA4351C2A62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFD4176A-5421-4DC0-BAF5-0BA4351C2A62}.Release|x64.ActiveCfg = Release|Any CPU
+		{DFD4176A-5421-4DC0-BAF5-0BA4351C2A62}.Release|x64.Build.0 = Release|Any CPU
+		{DFD4176A-5421-4DC0-BAF5-0BA4351C2A62}.Release|x86.ActiveCfg = Release|Any CPU
+		{DFD4176A-5421-4DC0-BAF5-0BA4351C2A62}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

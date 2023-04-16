@@ -119,9 +119,10 @@ namespace Planewalker.Content {
 		/// Gets the next number of random bits, completing when all bits are available.
 		/// </summary>
 		/// <param name="nbits">The number of bits to read</param>
+		/// <param name="ct">A cancellation token for the returned task</param>
 		/// <returns>Task with the result of the read bits.</returns>
 		/// <exception cref="ArgumentException">If the number of bits requested is negative or larger than the size of an <see cref="int"/></exception>
-		public static async Task<int> NextBits(int nbits) {
+		public static async Task<int> NextBits(int nbits, CancellationToken? ct = null) {
 			if (nbits == 0) return 0;
 			if (nbits < 0 || nbits > 32) throw new ArgumentException("Invalid number of bits to get", nameof(nbits));
 			do {
@@ -131,8 +132,11 @@ namespace Planewalker.Content {
 					// Else try the stale bits
 					if (TryPullBits(ref staleRandomNumber, ref staleRandomBits, nbits, out value)) return value ^ NextLocalBits(nbits);
 				}
+				ct?.ThrowIfCancellationRequested();
 				// If we failed to acquire the bits wait a bit and try again
-				await Task.Delay(100);
+				const int DelayTime = 100;
+				if (ct != null) await Task.Delay(DelayTime, ct.Value);
+				else await Task.Delay(DelayTime);
 			} while (true);
 		}
 
@@ -167,17 +171,18 @@ namespace Planewalker.Content {
 		/// <para>Gets the next random integer in the uniform range [0,max).</para>
 		/// </summary>
 		/// <param name="max">The maximum of the range, exclusive</param>
+		/// <param name="ct">A cancellation token for the returned task</param>
 		/// <returns>Task with the result of the random integer within the range.</returns>
-		public static async Task<int> NextInt(int max) {
+		public static async Task<int> NextInt(int max, CancellationToken? ct = null) {
 			// Count the minimum number of bits required to encode the integer.
 			int minBits = BitOperations.TrailingZeroCount(BitOperations.RoundUpToPowerOf2((uint)max));
 			// If the range is an exact power of two just return the bits
-			if (BitOperations.IsPow2(max)) return await NextBits(minBits);
+			if (BitOperations.IsPow2(max)) return await NextBits(minBits, ct);
 			else { // Else we need a more complex sampling strategy
 				   // Because this is a 'strict' context, do rejection sampling to guarentee a correct distribution
 				int result;
 				do {
-					result = await NextBits(minBits);
+					result = await NextBits(minBits, ct);
 				} while (result >= max);
 				return result;
 			}

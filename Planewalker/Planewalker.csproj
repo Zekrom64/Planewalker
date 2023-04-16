@@ -8,12 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Fonts\Font Awesome 6 Free-Solid-900.ttf" />
     <None Remove="Assets\Fonts\NotoEmoji-SemiBold.ttf" />
     <None Remove="Assets\Fonts\NotoSans-SemiBold.ttf" />
     <None Remove="Assets\lib\win64\SDL2.dll" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\Fonts\Font Awesome 6 Free-Solid-900.ttf" />
     <EmbeddedResource Include="Assets\Fonts\NotoEmoji-SemiBold.ttf" />
     <EmbeddedResource Include="Assets\Fonts\NotoSans-SemiBold.ttf" />
     <EmbeddedResource Include="Assets\lib\win64\SDL2.dll" />
@@ -26,8 +28,13 @@
     <ProjectReference Include="..\TesseractEngine\TesseractEngine-ImGui-Core\TesseractEngine-ImGui-Core.csproj" />
     <ProjectReference Include="..\TesseractEngine\TesseractEngine-ImGui-OpenGL\TesseractEngine-ImGui-OpenGL.csproj" />
     <ProjectReference Include="..\TesseractEngine\TesseractEngine-ImGui\TesseractEngine-ImGui.csproj" />
+    <ProjectReference Include="..\TesseractEngine\TesseractEngine-LMDB\TesseractEngine-LMDB.csproj" />
     <ProjectReference Include="..\TesseractEngine\TesseractEngine-SDL2-OpenGL\TesseractEngine-SDL2-OpenGL.csproj" />
     <ProjectReference Include="..\TesseractEngine\TesseractEngine-SDL2\TesseractEngine-SDL2.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Content\Character\" />
   </ItemGroup>
 
 </Project>
